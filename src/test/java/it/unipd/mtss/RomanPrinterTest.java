@@ -43,10 +43,19 @@ public class RomanPrinterTest {
         assertEquals("  __  __ \n |  \\/  |\n | \\  / |\n | |\\/| |\n | |  | |\n |_|  |_|\n", RomanPrinter.print(1000));
 
    }
-   @Test
-    public void testIllegalArgumentException() {
-        assertThrows(IllegalArgumentException.class, () -> RomanPrinter.print(0));
-        assertThrows(IllegalArgumentException.class, () -> RomanPrinter.print(1001));
-        assertThrows(IllegalArgumentException.class, () -> RomanPrinter.print(-1));
-    }
+  @Test(expected = IllegalArgumentException.class)
+public void testInvalidConversionZero() {
+    IntegerToRoman.convert(0);
+}
+
+@Test(expected = IllegalArgumentException.class)
+public void testInvalidConversionGreaterThan1000() {
+    IntegerToRoman.convert(1001);
+}
+
+@Test(expected = IllegalArgumentException.class)
+public void testInvalidConversionNegative() {
+    IntegerToRoman.convert(-1);
+}
+
 }
