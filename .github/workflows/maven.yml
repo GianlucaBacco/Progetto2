@@ -18,6 +18,14 @@ jobs:
       run: mvn test
     - name: "[2/3] Static Analysis"
       run: mvn package
+    - name: Check if jacoco.xml exists
+      run: |
+        if [ -f target/site/jacoco/jacoco.xml ]; then
+          echo " jacoco.xml found"
+        else
+          echo " jacoco.xml NOT FOUND"
+          exit 1
+        fi
     - name: "[3/3] Upload to Coveralls"
       uses: coverallsapp/github-action@v2
       with:
