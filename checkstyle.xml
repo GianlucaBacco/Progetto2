@@ -25,6 +25,6 @@
         <module name="NeedBraces"/>
     </module>
     <module name="Header">
-        <property name="headerFile" value="header.txt"/>
+        <property name="headerFile" value="Header.txt"/>
     </module>
 </module>
